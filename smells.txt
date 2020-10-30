@@ -1,0 +1,4 @@
+Question 1: Duplicated Code
+	Extract Method
+
+Question 2:
