@@ -3,3 +3,5 @@ Question 1: Duplicated Code
 
 Question 3: Feature Envy
 	Move Method
+
+Question 4: Change it into a for loop.
