@@ -104,12 +104,7 @@ public class CronTabTest {
         final Calendar next = cron.ceil(cal);
 
         final Calendar expectedDate = Calendar.getInstance();
-        expectedDate.set(2011, 0, 17, 23, 0, 0); // Expected next: Monday, Jan 17th 2011, 23:00
-        assertEquals(expectedDate.get(Calendar.HOUR), next.get(Calendar.HOUR));
-        assertEquals(expectedDate.get(Calendar.MINUTE), next.get(Calendar.MINUTE));
-        assertEquals(expectedDate.get(Calendar.YEAR), next.get(Calendar.YEAR));
-        assertEquals(expectedDate.get(Calendar.MONTH), next.get(Calendar.MONTH));
-        assertEquals(expectedDate.get(Calendar.DAY_OF_MONTH), next.get(Calendar.DAY_OF_MONTH)); // FAILS: is Monday, Jan 10th, 23:00
+        checkDates(next, expectedDate);
     }
 
     /**
@@ -126,13 +121,17 @@ public class CronTabTest {
         final Calendar next = cron.ceil(cal);
 
         final Calendar expectedDate = Calendar.getInstance();
-        expectedDate.set(2011, 0, 17, 23, 0, 0); // Expected next: Monday, Jan 17th 2011, 23:00
+        checkDates(next, expectedDate);
+    }
+
+	public void checkDates(final Calendar next, final Calendar expectedDate) {
+		expectedDate.set(2011, 0, 17, 23, 0, 0); // Expected next: Monday, Jan 17th 2011, 23:00
         assertEquals(expectedDate.get(Calendar.HOUR), next.get(Calendar.HOUR));
         assertEquals(expectedDate.get(Calendar.MINUTE), next.get(Calendar.MINUTE));
         assertEquals(expectedDate.get(Calendar.YEAR), next.get(Calendar.YEAR));
         assertEquals(expectedDate.get(Calendar.MONTH), next.get(Calendar.MONTH));
         assertEquals(expectedDate.get(Calendar.DAY_OF_MONTH), next.get(Calendar.DAY_OF_MONTH)); // FAILS: is Monday, Jan 10th, 23:00
-    }
+	}
 
     @Test
     public void testFloor1() throws Exception {

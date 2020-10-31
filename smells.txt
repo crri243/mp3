@@ -5,3 +5,13 @@ Question 3: Feature Envy
 	Move Method
 
 Question 4: Change it into a for loop.
+
+Question 6: Duplicated Code
+In CronTabTest.java, the lines
+        expectedDate.set(2011, 0, 17, 23, 0, 0); // Expected next: Monday, Jan 17th 2011, 23:00
+        assertEquals(expectedDate.get(Calendar.HOUR), next.get(Calendar.HOUR));
+        assertEquals(expectedDate.get(Calendar.MINUTE), next.get(Calendar.MINUTE));
+        assertEquals(expectedDate.get(Calendar.YEAR), next.get(Calendar.YEAR));
+        assertEquals(expectedDate.get(Calendar.MONTH), next.get(Calendar.MONTH));
+        assertEquals(expectedDate.get(Calendar.DAY_OF_MONTH), next.get(Calendar.DAY_OF_MONTH)); // FAILS: is Monday, Jan 10th, 23:00
+can be extracted into a method called checkDates() to remove duplicate code.
